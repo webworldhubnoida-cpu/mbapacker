@@ -1,9 +1,18 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin, ChevronRight, Globe } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin, ChevronRight, Globe, Youtube, Pin } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+
+  const socialLinks = [
+    { icon: Facebook, href: "https://www.facebook.com/mbapackerwala" },
+    { icon: Twitter, href: "https://x.com/Mbapackerwala" },
+    { icon: Instagram, href: "https://www.instagram.com/mbapackerwala" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/mbapackerwala" },
+    { icon: Youtube, href: "https://www.youtube.com/@Mbapackerwala" },
+    { icon: Pin, href: "https://in.pinterest.com/Mbapackerwala" },
+  ];
 
   const quickLinks = [
     { name: 'Home', href: '/' },
@@ -33,10 +42,10 @@ export default function Footer() {
               MBA Packers Wala is India's premier relocation specialist. Since 2003, we have set the gold standard in packing, moving, and logistics services with a focus on safety and reliability.
             </p>
             
-            <div className="flex gap-4">
-              {[Facebook, Linkedin, Instagram, Globe].map((Icon, i) => (
-                <a key={i} href="#" className="w-12 h-12 bg-brand-card border border-white/5 rounded-2xl flex items-center justify-center hover:bg-brand-primary hover:border-brand-primary transition-all duration-300 group">
-                  <Icon className="w-5 h-5 text-white/50 group-hover:text-white" />
+            <div className="flex flex-wrap gap-4">
+              {socialLinks.map((social, i) => (
+                <a key={i} href={social.href} target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-brand-card border border-white/5 rounded-2xl flex items-center justify-center hover:bg-brand-primary hover:border-brand-primary transition-all duration-300 group">
+                  <social.icon className="w-5 h-5 text-white/50 group-hover:text-white" />
                 </a>
               ))}
             </div>
